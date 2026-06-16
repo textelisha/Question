@@ -377,6 +377,29 @@ h3 {
     background: #f9f9f9;
 }
 
+/* Delete Button */
+.delete-btn {
+    background: #ff4444;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+    font-weight: bold;
+}
+
+.delete-btn:hover {
+    background: #cc0000;
+    transform: scale(1.05);
+    box-shadow: 0 2px 8px rgba(255, 68, 68, 0.3);
+}
+
+.delete-btn:active {
+    transform: scale(0.95);
+}
+
 .admin-stats {
     background: white;
     padding: 20px;
@@ -452,5 +475,10 @@ h3 {
     .data-table td {
         padding: 10px 8px;
         font-size: 0.9rem;
+    }
+
+    .delete-btn {
+        padding: 6px 10px;
+        font-size: 0.8rem;
     }
 }
