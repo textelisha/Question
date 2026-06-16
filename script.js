@@ -98,12 +98,13 @@ adminPassword.addEventListener('keypress', (e) => {
 // Display all data in table
 function displayAllData() {
     dataTableBody.innerHTML = '';
-    usersData.forEach((user) => {
+    usersData.forEach((user, index) => {
         const row = document.createElement('tr');
         row.innerHTML = `
             <td>${user.username}</td>
             <td><strong style="color: #4169e1;">${user.response}</strong></td>
             <td>${user.timestamp}</td>
+            <td><button class="delete-btn" onclick="deleteResponse(${index})">🗑️ Delete</button></td>
         `;
         dataTableBody.appendChild(row);
     });
@@ -111,6 +112,15 @@ function displayAllData() {
     // Update stats
     totalCount.textContent = usersData.length;
     yesCount.textContent = usersData.filter(u => u.response === 'Yes').length;
+}
+
+// Delete response function
+function deleteResponse(index) {
+    if (confirm('Are you sure you want to delete this response?')) {
+        usersData.splice(index, 1);
+        localStorage.setItem('usersData', JSON.stringify(usersData));
+        displayAllData();
+    }
 }
 
 // Start button - Username
